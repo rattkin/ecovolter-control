@@ -1,0 +1,27 @@
+type: vertical-stack
+title: Ovládání EcoVolter
+cards:
+  - type: entities
+    entities:
+      - entity: input_boolean.ecovolter_charging_enabled
+        name: Nabíjení povoleno
+      - entity: input_boolean.ecovolter_three_phase_mode_enabled
+        name: Třífázový režim
+      - entity: input_boolean.ecovolter_boost_mode_enabled
+        name: Režim zrychlení
+      - entity: input_boolean.ecovolter_local_panel_enabled
+        name: Místní panel
+    title: Ovládací prvky
+  - type: entities
+    entities:
+      - entity: input_number.ecovolter_target_current
+        name: Cílový proud
+      - entity: input_number.ecovolter_boost_time
+        name: Doba zrychlení
+      - entity: input_number.ecovolter_kwh_price
+        name: Cena za kWh
+      - entity: input_number.ecovolter_boost_current
+        name: Zrychlený proud
+      - entity: input_number.ecovolter_max_current
+        name: Maximální proud
+    title: Nastavení nabíjení

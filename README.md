@@ -1,6 +1,22 @@
+# Ovládání EcoVolter přes HomeAssistant
+
+Chytrá a bezpečná česká nabíječka od https://www.nabijelektromobil.cz/ má možnost ovládání a plánování z HomeAssistent. Tohle je první implementace API takže možná budou nějaké chyby.
+
+## Postup instalace:
 1. instalujte PyScript přes HACS:
- HACS -> Integrace, svolit "+", hledeje pyscript a instalujte.
+ HACS -> Integrace, zvolit "+", hledeje pyscript a instalujte.
 
  2. přidejte obsah `configuration.yaml` do své konfigurace
 
  3. kopírujte obsah adresářů ecovolter a pyscript do svého konfiguračního adresáře
+
+ 4. zadejte seriové číslo do obou skriptů v adresáři pyscript
+
+ 5. restartujte HomeAssitant
+
+ 6. přidejte si do dashboardů z adresáře dashboard
+
+## V případě problémů:
+- kontolujte log: https://my.home-assistant.io/redirect/logs/
+- možná vyšla aktualizace: https://github.com/rattkin/ecovolter-control
+- pište chybu do githubu, pokud to není hlášeno
