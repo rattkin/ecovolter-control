@@ -1,0 +1,6 @@
+# EcoVolter start
+pyscript:
+  allow_all_imports: true
+input_number: !include ecovolter/input_numbers.yaml
+input_boolean: !include ecovolter/input_booleans.yaml
+# EcoVolter end

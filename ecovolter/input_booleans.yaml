@@ -1,0 +1,15 @@
+ecovolter_charging_enabled:
+  name: Nabíjení povoleno
+  initial: true
+
+ecovolter_three_phase_mode_enabled:
+  name: Třífázový režim povolen
+  initial: true
+
+ecovolter_boost_mode_enabled:
+  name: Režim Boost povolen
+  initial: false
+
+ecovolter_local_panel_enabled:
+  name: Místní panel povolen
+  initial: true

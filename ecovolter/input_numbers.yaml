@@ -1,0 +1,44 @@
+ecovolter_target_current:
+  name: Cílový proud
+  initial: 6
+  min: 6
+  max: 16
+  step: 1
+  mode: slider
+  unit_of_measurement: A
+
+ecovolter_boost_time:
+  name: Režim Boost
+  initial: 0
+  min: 0
+  max: 3600
+  step: 1
+  mode: box
+  unit_of_measurement: s
+
+ecovolter_kwh_price:
+  name: Cena za kWh
+  initial: 5.5
+  min: 0
+  max: 20
+  step: 0.1
+  mode: box
+  unit_of_measurement: Kč/kWh
+
+ecovolter_boost_current:
+  name: Zrychlený proud
+  initial: 16
+  min: 6
+  max: 16
+  step: 1
+  mode: slider
+  unit_of_measurement: A
+
+ecovolter_max_current:
+  name: Maximální proud
+  initial: 16
+  min: 6
+  max: 16
+  step: 1
+  mode: slider
+  unit_of_measurement: A
