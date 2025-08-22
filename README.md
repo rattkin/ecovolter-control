@@ -8,13 +8,13 @@ Chytrá a bezpečná česká nabíječka od https://www.nabijelektromobil.cz/ m�
 1. instalujte PyScript přes HACS:
 HACS -> Integrace, zvolit "+", hledeje pyscript a instalujte.
 
-2. v editoru (například VSCode doplněk) přidejte obsah `configuration.yaml` do své konfigurace
+2. v editoru (například VSCode doplněk) přidejte obsah `configuration.yaml` do svého souboru  `configuration.yaml` v adresáři config
 
-3. kopírujte také adresáře ecovolter a pyscript do svého konfiguračního adresáře
+3. přidejte obsah souboru `automations.yaml` do vašeho souboru `automations.yaml`
 
-4. a zadejte seriové číslo do obou skriptů v adresáři pyscript
+4. kopírujte adresáře ecovolter a pyscript do svého adresáře config
 
-5. přidejta automatizaci ze souboru `ecovolter_automations.yaml` do svých automatizací
+5. a zadejte seriové číslo do obou skriptů v adresáři pyscript
 
 6. restartujte HomeAssistant
 

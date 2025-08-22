@@ -1,0 +1,39 @@
+- id: ecovolter_set_charger_settings # ID is typically a string, which you already have
+  alias: Nastavit EcoVolter nabíječku
+  description: "Synchronizuje Home Assistant vstupy s nastavením nabíječky EcoVolter."
+  trigger:
+    - entity_id: # For state triggers, 'trigger: state' is the concise way
+        - input_number.ecovolter_target_current
+        - input_number.ecovolter_boost_time
+        - input_number.ecovolter_kwh_price
+        - input_number.ecovolter_boost_current
+        - input_number.ecovolter_max_current
+        - input_boolean.ecovolter_charging_enabled
+        - input_boolean.ecovolter_three_phase_mode_enabled
+        - input_boolean.ecovolter_boost_mode_enabled
+        - input_boolean.ecovolter_local_panel_enabled
+      trigger: state # This is the "new" concise way for state triggers
+  action:
+    - action: pyscript.set_ecovolter_setting
+      data:
+        target_current: "{{ states('input_number.ecovolter_target_current') | int(0) }}" # Added default (0) for robustness
+        boost_time: "{{ states('input_number.ecovolter_boost_time') | int(0) }}"
+        kwh_price: "{{ states('input_number.ecovolter_kwh_price') | float(0) }}"
+        boost_current: "{{ states('input_number.ecovolter_boost_current') | int(0) }}"
+        max_current: "{{ states('input_number.ecovolter_max_current') | int(0) }}"
+        is_charging_enabled: "{{ is_state('input_boolean.ecovolter_charging_enabled', 'on') }}"
+        is_three_phase_mode_enabled: "{{ is_state('input_boolean.ecovolter_three_phase_mode_enabled', 'on') }}"
+        is_boost_mode_enabled: "{{ is_state('input_boolean.ecovolter_boost_mode_enabled', 'on') }}"
+        is_local_panel_enabled: "{{ is_state('input_boolean.ecovolter_local_panel_enabled', 'on') }}"
+  mode: single # mode: single is a good default
+
+- id: ecovolter_fetch_data_on_schedule
+  alias: EcoVolter stav
+  description: "Pravidelně stahuje data ze zařízení EcoVolter."
+  trigger:
+    - minutes: "/2" # For time_pattern, 'trigger: time_pattern' is the concise way
+      trigger: time_pattern
+  condition: [] # Explicitly empty conditions is good style
+  action:
+    - action: pyscript.fetch_ecovolter_data
+  mode: single
