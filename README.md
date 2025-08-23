@@ -2,7 +2,7 @@
 
 Chytrá a bezpečná česká nabíječka od https://www.nabijelektromobil.cz/ má možnost ovládání a plánování z HomeAssistant. Tohle je první implementace API takže možná budou nějaké chyby.
 
-5% sleva na nabíječky https://EcoVolter.cz s kódem TYGRI nebo TYGRISK
+5% sleva na nabíječky https://www.nabijelektromobil.cz/ s kódem TYGRI nebo TYGRISK
 
 ## Postup instalace:
 1. instalujte PyScript přes HACS:

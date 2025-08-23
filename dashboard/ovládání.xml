@@ -12,6 +12,7 @@ cards:
       - entity: input_boolean.ecovolter_local_panel_enabled
         name: Místní panel
     title: Ovládací prvky
+    show_header_toggle: false
   - type: entities
     entities:
       - entity: input_number.ecovolter_target_current
