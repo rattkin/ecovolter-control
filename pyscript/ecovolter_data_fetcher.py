@@ -1,11 +1,18 @@
 # https://asnplus.github.io/revc-charger-local-api-documentation/
 
+
 import hmac
 import hashlib
 import time
 import json
 import asyncio
 import aiohttp
+
+def safe_round(value, ndigits=0):
+    try:
+        return round(float(value), ndigits)
+    except (TypeError, ValueError):
+        return 0.0
 
 @service
 async def fetch_ecovolter_data():
@@ -190,16 +197,16 @@ async def fetch_ecovolter_data():
 
             state.set(
                 "sensor.ecovolter_charged_energy",
-                charger_data_status.get("chargedEnergy", 0),
+                safe_round(charger_data_status.get("chargedEnergy", 0), 2),
                 {
                     "friendly_name": "Nabitá energie",
-                    "unit_of_measurement": "Wh",
+                    "unit_of_measurement": "kWh",
                     "unique_id": f"{key}_charged_energy",
                 },
             )
             state.set(
                 "sensor.ecovolter_charging_cost",
-                charger_data_status.get("chargingCost", 0),
+                safe_round(charger_data_status.get("chargingCost", 0), 2),
                 {
                     "friendly_name": "Cena nabíjení",
                     "unique_id": f"{key}_charging_cost",
@@ -225,16 +232,16 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_actual_power",
-                charger_data_status.get("actualPower", 0),
+                safe_round(charger_data_status.get("actualPower", 0), 0),
                 {
                     "friendly_name": "Aktuální výkon",
-                    "unit_of_measurement": "W",
+                    "unit_of_measurement": "kW",
                     "unique_id": f"{key}_actual_power",
                 },
             )
             state.set(
                 "sensor.ecovolter_current_l1",
-                charger_data_status.get("currentL1", 0),
+                safe_round(charger_data_status.get("currentL1", 0), 0),
                 {
                     "friendly_name": "Proud L1",
                     "unit_of_measurement": "A",
@@ -243,7 +250,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_current_l2",
-                charger_data_status.get("currentL2", 0),
+                safe_round(charger_data_status.get("currentL2", 0), 0),
                 {
                     "friendly_name": "Proud L2",
                     "unit_of_measurement": "A",
@@ -252,7 +259,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_current_l3",
-                charger_data_status.get("currentL3", 0),
+                safe_round(charger_data_status.get("currentL3", 0), 0),
                 {
                     "friendly_name": "Proud L3",
                     "unit_of_measurement": "A",
@@ -261,7 +268,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_voltage_l1",
-                round(charger_data_status.get("voltageL1", 0), 2),
+                safe_round(charger_data_status.get("voltageL1", 0), 0),
                 {
                     "friendly_name": "Napětí L1",
                     "unit_of_measurement": "V",
@@ -270,7 +277,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_voltage_l2",
-                round(charger_data_status.get("voltageL2", 0), 2),
+                safe_round(charger_data_status.get("voltageL2", 0), 0),
                 {
                     "friendly_name": "Napětí L2",
                     "unit_of_measurement": "V",
@@ -279,7 +286,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_voltage_l3",
-                round(charger_data_status.get("voltageL3", 0), 2),
+                safe_round(charger_data_status.get("voltageL3", 0), 0),
                 {
                     "friendly_name": "Napětí L3",
                     "unit_of_measurement": "V",
@@ -363,7 +370,7 @@ async def fetch_ecovolter_data():
             temperatures = charger_data_status.get("temperatures", {})
             state.set(
                 "sensor.ecovolter_adapter_temperature",
-                round(temperatures.get("adapter", [0])[0], 2),
+                safe_round(temperatures.get("adapter", [0])[0], 2),
                 {
                     "friendly_name": "Teplota adaptéru",
                     "unit_of_measurement": "°C",
@@ -372,7 +379,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_relay_temperature",
-                round(temperatures.get("relay", [0])[0], 2),
+                safe_round(temperatures.get("relay", [0])[0], 2),
                 {
                     "friendly_name": "Teplota relé",
                     "unit_of_measurement": "°C",
@@ -381,7 +388,7 @@ async def fetch_ecovolter_data():
             )
             state.set(
                 "sensor.ecovolter_internal_temperature",
-                round(temperatures.get("internal", 0), 2),
+                safe_round(temperatures.get("internal", 0), 2),
                 {
                     "friendly_name": "Vnitřní teplota",
                     "unit_of_measurement": "°C",
