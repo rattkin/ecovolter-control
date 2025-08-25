@@ -16,7 +16,7 @@ HACS -> Integrace, zvolit "+", hledeje pyscript a instalujte.
 
 4. kopírujte adresáře ecovolter a pyscript do svého adresáře config
 
-5. a zadejte seriové číslo do obou skriptů v adresáři pyscript `key = "revcr01000000"`
+5. a zadejte seriové číslo vačeho EcoVolter do obou skriptů v adresáři pyscript: `key = "revcr01000000"`
 
 6. restartujte HomeAssistant
 
