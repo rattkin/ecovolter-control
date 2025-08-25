@@ -4,6 +4,8 @@ Chytrá a bezpečná česká nabíječka od https://www.nabijelektromobil.cz/ m�
 
 5% sleva na nabíječky https://www.nabijelektromobil.cz/ s kódem TYGRI nebo TYGRISK
 
+Video návod: https://youtu.be/xeg4AKZQC_s
+
 ## Postup instalace:
 1. instalujte PyScript přes HACS:
 HACS -> Integrace, zvolit "+", hledeje pyscript a instalujte.
